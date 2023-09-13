@@ -16,6 +16,8 @@ WORKDIR /var/www/html
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer install
 
+CMD ["vendor/bin/phpunit", "tests/Unit/ExampleTest.php"]
+
 EXPOSE 9000
 
 CMD ["php-fpm"]
